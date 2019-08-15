@@ -25,7 +25,7 @@ class App extends Component {
   })
   }
   toggleComplete = (id) => {
-    
+
   } 
   render() {
     return (
@@ -33,7 +33,7 @@ class App extends Component {
       <div className="App bg-gray-500 h-screen">
       <p className="font-bold text-yellow-500 text-6xl text-center">PATITOH 2.0</p>
       <AddTodo addTodo={this.addTodo}/>
-      <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
+      <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} toggleComplete={() => this.toggleComplete(todo.id)}/>
       </div>
     );
   }
