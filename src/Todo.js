@@ -5,12 +5,12 @@ const Todos = ({todos, deleteTodo}) => {
     const todoList = todos.length ? (
         todos.map(todo => {
             return (
-                <div className="collecton-item text-center text-xl bg-white shadow-lg p-4 rounded-lg mx-auto mt-4 h-auto w-full max-w-sm" key={todo.id}>
+                <div class="justify-around" className="hover:bg-blue-300 collecton-item text-xl bg-white shadow-lg p-4 rounded-lg mx-auto mt-4 h-auto w-full max-w-sm" key={todo.id}>
                     <span>{todo.content}</span>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-full" onClick={() => {deleteTodo(todo.id)}}>
+                    <button class="mx-1 float-right bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-full" onClick={() => {deleteTodo(todo.id)}}>
                     X
                     </button>
-                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded-full">
+                    <button class="float-right bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded-full ">
                     ✔
                     </button>
                     
