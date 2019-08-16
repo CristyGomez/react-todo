@@ -12,11 +12,11 @@ class AddTodo extends Component {
         })
     }
     handleSubmit = (e) => {
+        e.preventDefault();
         if (this.state.content.trim().length === 0) {
-        alert('Debe ingresar un datos');
+    
         return false; 
         } else {
-        e.preventDefault();
         this.props.addTodo(this.state);
         this.aumentar.bind(this)
         this.setState({
