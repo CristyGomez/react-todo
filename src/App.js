@@ -5,8 +5,6 @@ import AddTodo from './AddForm.js';
 class App extends Component {
   state = {
     todos: [
-      {id: 1, content: 'comprar harina'},
-      {id: 2, content: 'comprar oro'}
     ]
   }
   deleteTodo = (id) => {
@@ -24,24 +22,35 @@ class App extends Component {
       todos
     })
     }
- completeTodo = (id) =>{
-   const todos = this.todo.getElementById('complete')(todo => {
-     return todo.id === id
-   });
-   todos.className = 'line-through hover:bg-blue-300 collecton-item text-xl bg-white shadow-lg p-4 rounded-lg mx-auto mt-4 h-auto w-full max-w-sm';
+ //completeTodo = (id) =>{
+   //const todos = this.todo.getElementById('complete')(todo => {
+     //return todo.id === id
+   //});
+   //todos.className = 'line-through hover:bg-blue-300 collecton-item text-xl bg-white shadow-lg p-4 rounded-lg mx-auto mt-4 h-auto w-full max-w-sm';
    
- }
+ //}
 
-   //var hola = document.getElementById('complete');
-   //hola.className = 'line-through hover:bg-blue-300 collecton-item text-xl bg-white shadow-lg p-4 rounded-lg mx-auto mt-4 h-auto w-full max-w-sm';
-  
+    //let hola = document.getElementById('complete')
+    //hola.className = 'line-through bg-green-300 hover:bg-blue-300 collecton-item text-xl bg-white shadow-lg p-4 rounded-lg mx-auto mt-4 h-auto w-full max-w-sm';
+  doneTodo = (id) => {
+    let todos = this.state.todos.filter(todo=>{
+      return todo.id === id
+    });
+    
+      console.log(id);
+      console.log(todos);
+      //let done = todos.id.getElementById('complete');
+      //console.log(done);
+      let done = document.getElementById('complete')
+      done.className = 'line-through bg-green-300 hover:bg-blue-300 collecton-item text-xl bg-white shadow-lg p-4 rounded-lg mx-auto mt-4 h-auto w-full max-w-sm';
+  }
   render() {
     return (
       
-      <div className="App bg-gray-500 h-screen">
-      <p className="font-bold text-yellow-500 text-6xl text-center">PATITOH 2.0</p>
+      <div className="App h-screen" >
+      <p className="font-bold text-teal-700 text-6xl text-center">PATITOH 2.0</p>
       <AddTodo addTodo={this.addTodo}/>
-      <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} completeTodo={this.completeTodo}/>
+      <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} completeTodo={this.completeTodo} doneTodo={this.doneTodo}/>
       </div>
     ); 
   }
