@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; 
 
 class AddTodo extends Component {
     state = {
-        content: ''
+        content: '',
+        completed: false
     }
     handleChange = (e) => {
         this.setState({
@@ -10,11 +11,17 @@ class AddTodo extends Component {
         })
     }
     handleSubmit = (e) => {
+        if (this.state.content.trim().length == 0) {
+        alert('Debe ingresar un dato');
+        return false; 
+        } else {
         e.preventDefault();
         this.props.addTodo(this.state);
         this.setState({
-            content: ''
+            content: '',
+            completed:false
         })
+    }
     }
     render(){
         return (
